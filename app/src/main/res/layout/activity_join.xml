@@ -5,4 +5,72 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JoinActivity"/>
+    android:background="#E6E2E2"
+    tools:context=".JoinActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="회원 가입"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etPw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="PassWord"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/etId"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etId"
+        app:layout_constraintTop_toBottomOf="@+id/etId" />
+
+    <EditText
+        android:id="@+id/etId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="ID"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnJoinAct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="228dp"
+        android:text="Join"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/etNick"
+        app:layout_constraintStart_toStartOf="@+id/etNick"
+        app:layout_constraintTop_toBottomOf="@+id/etNick" />
+
+    <EditText
+        android:id="@+id/etNick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Nickname"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/etPw"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etPw"
+        app:layout_constraintTop_toBottomOf="@+id/etPw" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
