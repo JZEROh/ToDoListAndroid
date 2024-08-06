@@ -3,5 +3,6 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">localhost</domain>
         <domain includeSubdomains="true">192.168.219.50</domain> <!-- 에뮬레이터의 localhost 주소 -->
+        <domain includeSubdomains="true">api.openweathermap.org</domain>
     </domain-config>
 </network-security-config>
