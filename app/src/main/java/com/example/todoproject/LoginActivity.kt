@@ -1,10 +1,10 @@
 package com.example.todoproject
 
-import android.content.ContextParams
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -13,26 +13,32 @@ import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 
 class LoginActivity : AppCompatActivity() {
+
     lateinit var queue : RequestQueue
+    lateinit var btnGo : Button
+    lateinit var etId : EditText
+    lateinit var etPw : EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_login)
-
-        val btnGo = findViewById<Button>(R.id.btnGo)
-        val etId = findViewById<EditText>(R.id.etId)
-        val etPw = findViewById<EditText>(R.id.etPw)
+        btnGo = findViewById(R.id.btnGo)
+        etId = findViewById(R.id.etId)
+        etPw = findViewById(R.id.etPw)
 
         queue =Volley.newRequestQueue(this)
-        btnGo.setOnClickListener {
-            var inputId = etId.text.toString()
-            var inputPw = etPw.text.toString()
 
-            val member = Member(inputId,inputPw)
+        btnGo.setOnClickListener {
+            Log.d("LoginActivity", "Button clicked")
+            Toast.makeText(this, "버튼 클릭", Toast.LENGTH_SHORT).show()
+            val Id = etId.text.toString()
+            val Pw = etPw.text.toString()
+
+            val member = Member(Id,Pw)
 
             val request =object : StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.64:8089/join",
+                "http://192.168.219.64:8089/login",
                 {response->
                     Log.d("response",response.toString())
                 },
@@ -42,12 +48,11 @@ class LoginActivity : AppCompatActivity() {
             ){
                 override fun getParams(): Map<String,String>{
                     val params :MutableMap<String,String> = HashMap<String,String>()
-                    params.put("joinMember",Gson().toJson(member))
+                    params.put("loginmember",Gson().toJson(member))
                     return params
                 }
             }
             queue.add(request)
         }
     }
-
 }
