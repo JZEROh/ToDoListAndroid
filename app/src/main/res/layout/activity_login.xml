@@ -29,7 +29,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/LoginID"
+        android:id="@+id/loginID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
@@ -41,15 +41,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/LoginPw"
+        android:id="@+id/loginPw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="PassWord"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/LoginID"
-        app:layout_constraintStart_toStartOf="@+id/LoginID"
-        tools:layout_editor_absoluteY="334dp" />
+        app:layout_constraintEnd_toEndOf="@+id/loginID"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/loginID"
+        app:layout_constraintTop_toBottomOf="@+id/loginID" />
 
     <TextView
         android:id="@+id/textView2"
