@@ -1,15 +1,29 @@
 package com.example.todoproject
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-
+import androidx.fragment.app.Fragment
+import com.example.todoproject.databinding.ActivityFirstpageBinding
 
 class FirstpageActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityFirstpageBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_firstpage)
+        binding = ActivityFirstpageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
+        if (savedInstanceState == null) {
+            replaceFragment(Calendar_frag())
+        }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 }
