@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue">#0000FF</color> <!-- 파란색 -->
+    <color name="red">#FF0000</color> <!-- 빨간색 -->
 </resources>
