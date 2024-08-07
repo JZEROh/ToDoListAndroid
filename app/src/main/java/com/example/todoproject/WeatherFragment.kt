@@ -5,11 +5,14 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
@@ -21,7 +24,7 @@ import com.google.gson.JsonObject
 import java.text.SimpleDateFormat
 import java.util.*
 
-class WeatherActivity : AppCompatActivity() {
+class WeatherFragment : Fragment() {
 
     private lateinit var textView: TextView
     private lateinit var weatherImageView: ImageView
@@ -29,24 +32,32 @@ class WeatherActivity : AppCompatActivity() {
     private val API_KEY = "04fcb86fd0e51ab3c803ed70290ff646"  // 발급받은 OpenWeatherMap API 키
     private val LOCATION_PERMISSION_REQUEST_CODE = 1
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_weather)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Fragment의 레이아웃을 Inflate 합니다.
+        return inflater.inflate(R.layout.fragment_weather, container, false)
+    }
 
-        textView = findViewById(R.id.textView)
-        weatherImageView = findViewById(R.id.weatherImageView)
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Fragment의 View를 초기화합니다.
+        textView = view.findViewById(R.id.textView)
+        weatherImageView = view.findViewById(R.id.weatherImageView)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
         // 권한 확인 및 요청
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
         } else {
             fetchWeatherData()
         }
     }
 
     private fun fetchWeatherData() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             textView.text = "Location permission required to fetch weather data."
             return
         }
@@ -62,7 +73,7 @@ class WeatherActivity : AppCompatActivity() {
                         // 날씨 API 요청 URL 생성
                         val weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&units=metric&appid=$API_KEY"
 
-                        val queue: RequestQueue = Volley.newRequestQueue(this)
+                        val queue: RequestQueue = Volley.newRequestQueue(requireContext())
                         val stringRequest = StringRequest(Request.Method.GET, weatherUrl,
                             { response ->
                                 try {
@@ -86,12 +97,12 @@ class WeatherActivity : AppCompatActivity() {
                                     updateWeatherIcon(icon)
                                 } catch (e: Exception) {
                                     textView.text = "Failed to parse weather data!"
-                                    Log.e("WeatherActivity", "Parsing error: ${e.message}")
+                                    Log.e("WeatherFragment", "Parsing error: ${e.message}")
                                 }
                             },
                             { error ->
                                 textView.text = "Failed to get weather data!"
-                                Log.e("WeatherActivity", "Network error: ${error.message}")
+                                Log.e("WeatherFragment", "Network error: ${error.message}")
                             }
                         )
                         queue.add(stringRequest)
@@ -102,13 +113,13 @@ class WeatherActivity : AppCompatActivity() {
             }
             .addOnFailureListener { exception ->
                 textView.text = "Failed to get location!"
-                Log.e("WeatherActivity", "Location error: ${exception.message}")
+                Log.e("WeatherFragment", "Location error: ${exception.message}")
             }
     }
 
     private fun fetchCityName(lat: Double, lon: Double, callback: (String) -> Unit) {
         val url = "https://nominatim.openstreetmap.org/reverse?format=json&lat=$lat&lon=$lon&zoom=10&addressdetails=1"
-        val queue: RequestQueue = Volley.newRequestQueue(this)
+        val queue: RequestQueue = Volley.newRequestQueue(requireContext())
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
                 try {
@@ -118,12 +129,12 @@ class WeatherActivity : AppCompatActivity() {
                     val city = address.get("city")?.asString ?: address.get("town")?.asString ?: address.get("village")?.asString ?: "Unknown City"
                     callback(city)
                 } catch (e: Exception) {
-                    Log.e("WeatherActivity", "Parsing error: ${e.message}")
+                    Log.e("WeatherFragment", "Parsing error: ${e.message}")
                     callback("Unknown City")
                 }
             },
             { error ->
-                Log.e("WeatherActivity", "Network error: ${error.message}")
+                Log.e("WeatherFragment", "Network error: ${error.message}")
                 callback("Unknown City")
             }
         )
