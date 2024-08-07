@@ -30,15 +30,14 @@ class LoginActivity : AppCompatActivity() {
 
         btnGo.setOnClickListener {
             Log.d("LoginActivity", "Button clicked")
-            Toast.makeText(this, "버튼 클릭", Toast.LENGTH_SHORT).show()
-            val Id = etId.text.toString()
-            val Pw = etPw.text.toString()
+            val id = etId.text.toString()
+            val pw = etPw.text.toString()
 
-            val member = Member(Id,Pw)
+            val member = Member(id,pw)
 
             val request =object : StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.64:8089/login",
+                "http://192.168.219.64:8089/members/sign-in",
                 {response->
                     Log.d("response",response.toString())
                 },
@@ -48,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
             ){
                 override fun getParams(): Map<String,String>{
                     val params :MutableMap<String,String> = HashMap<String,String>()
-                    params.put("loginmember",Gson().toJson(member))
+                    params.put("loginDto",Gson().toJson(member))
                     return params
                 }
             }
