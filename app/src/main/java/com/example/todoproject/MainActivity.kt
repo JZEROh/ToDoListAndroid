@@ -14,8 +14,9 @@ class MainActivity : AppCompatActivity() {
         val bnv = findViewById<BottomNavigationView>(R.id.bnv)
 
         //프레그먼트 디폴트 화면
-//        supportFragmentManager.beginTransaction().replace(
-//            R.id.mainContent, WeatherFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(
+            R.id.mainContent, Calendar_frag()
+        ).commit()
 
         bnv.setOnItemSelectedListener { //메뉴 선택
                 item ->
@@ -25,6 +26,14 @@ class MainActivity : AppCompatActivity() {
                         R.id.mainContent, WeatherFragment()
                     ).commit()
                     true
+                }
+
+                R.id.calender_id -> {
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.mainContent, Calendar_frag()
+                    ).commit()
+                    true
+
                 }
 
                 else -> false
