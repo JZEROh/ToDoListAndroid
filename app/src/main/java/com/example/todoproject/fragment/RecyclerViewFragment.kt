@@ -1,4 +1,4 @@
-package com.example.todoproject
+package com.example.todoproject.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todoproject.R
+import com.example.todoproject.adapter.ToDoMonthAdapter
+import com.example.todoproject.data.ToDoItem
 
 class RecyclerViewFragment : Fragment() {
 

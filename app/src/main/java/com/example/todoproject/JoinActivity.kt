@@ -1,5 +1,6 @@
 package com.example.todoproject
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -57,7 +58,7 @@ class JoinActivity : AppCompatActivity() {
         // Request.Builder를 사용하여 요청 객체생성
         // POST메서드를 사용하여 폼 데이터 서버로 전송
         val request = Request.Builder()
-            .url("http://192.168.219.59:8089/members/sign-up")
+            .url("http://192.168.219.48:8089/members/sign-up")
             .post(body)
             .build()
 
@@ -76,6 +77,9 @@ class JoinActivity : AppCompatActivity() {
                     if(!it.isSuccessful) throw IOException("Unexpected code $it")
                     runOnUiThread {
                         Toast.makeText(this@JoinActivity, "회원가입 성공!!", Toast.LENGTH_SHORT).show()
+                        val  intent = Intent(this@JoinActivity, LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
                     }
                 }
             }

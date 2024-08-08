@@ -1,4 +1,4 @@
-package com.example.todoproject
+package com.example.todoproject.fragment
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -17,6 +17,7 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.todoproject.R
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.gson.Gson

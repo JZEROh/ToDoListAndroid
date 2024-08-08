@@ -26,13 +26,13 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".WeatherFragment"
+            android:name=".fragment.WeatherFragment"
             android:exported="true" />
         <activity
             android:name=".ToDoActivity"
             android:exported="false" />
         <activity
-            android:name=".Calendar_frag"
+            android:name=".fragment.Calendar_frag"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"

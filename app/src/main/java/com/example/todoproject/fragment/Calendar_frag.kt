@@ -1,4 +1,4 @@
-package com.example.todoproject
+package com.example.todoproject.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
+import com.example.todoproject.R
+import com.example.todoproject.ToDoActivity
+import com.example.todoproject.adapter.Month_adapter
 import com.example.todoproject.databinding.CalendarBinding
 import java.util.Calendar
 import java.util.Date
