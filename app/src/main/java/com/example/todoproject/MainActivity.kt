@@ -1,6 +1,7 @@
 package com.example.todoproject
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.FrameLayout
@@ -20,8 +21,10 @@ class MainActivity : AppCompatActivity() {
 
         val mainContent = findViewById<FrameLayout>(R.id.mainContent)
         val bnv = findViewById<BottomNavigationView>(R.id.bnv)
+        val logoutBtn = findViewById<TextView>(R.id.LogoutBtn)
         getNick()
         findViewById<TextView>(R.id.mainTvNick).text = nickname
+
         //프레그먼트 디폴트 화면
         supportFragmentManager.beginTransaction().replace(
             R.id.mainContent, Calendar_frag()
@@ -56,7 +59,27 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
+        logoutBtn.setOnClickListener{
+            logout()
+        }
     }
+
+
+    fun logout(){
+        // SharedPreferences에서 토큰 제거
+        val sharedPreferences = getSharedPreferences("my_prefs",Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.remove("access_token")
+        editor.apply()
+
+        // 로그인 화면으로 이동
+        val intent = Intent(this,FirstpageActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
+    }
+
 
     fun getNick() {
         val sharedPreferences = getSharedPreferences("my_prefs", Context.MODE_PRIVATE)

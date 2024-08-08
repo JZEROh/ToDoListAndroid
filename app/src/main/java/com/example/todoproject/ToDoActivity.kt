@@ -33,7 +33,7 @@ class ToDoActivity : AppCompatActivity() {
     private lateinit var etTodo: EditText
     private lateinit var toDoList: RecyclerView
     private lateinit var selectedDateTextView: TextView
-
+    var url : String = "192.168.219.59"
     // 데이터
     private lateinit var toDoItems: MutableList<Todo>
 
@@ -120,7 +120,7 @@ class ToDoActivity : AppCompatActivity() {
         // Request.Builder를 사용하여 요청 객체생성
         // GET 메서드를 사용하여 서버에 요청, 헤더에 토큰 추가
         val request = Request.Builder()
-            .url("http://192.168.219.48:8089/api/schedules")
+            .url("http://${url}:8089/api/schedules")
             .get()
             .build()
 
@@ -215,7 +215,7 @@ class ToDoActivity : AppCompatActivity() {
 
         // 3. Request 객체 생성 (POST 방식)
         val request = Request.Builder()
-            .url("http://192.168.219.48:8089/api/schedules") // 실제 서버 API 엔드포인트로 변경
+            .url("http://${url}:8089/api/schedules") // 실제 서버 API 엔드포인트로 변경
             .post(requestBody)
             .build()
 

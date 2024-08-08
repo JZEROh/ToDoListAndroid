@@ -22,6 +22,7 @@ class JoinActivity : AppCompatActivity() {
     lateinit var etPw : EditText
     lateinit var etNick : EditText
     lateinit var btnJoinAct : Button
+    var url : String = "192.168.219.59"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +59,7 @@ class JoinActivity : AppCompatActivity() {
         // Request.Builder를 사용하여 요청 객체생성
         // POST메서드를 사용하여 폼 데이터 서버로 전송
         val request = Request.Builder()
-            .url("http://192.168.219.48:8089/members/sign-up")
+            .url("http://${url}:8089/members/sign-up")
             .post(body)
             .build()
 

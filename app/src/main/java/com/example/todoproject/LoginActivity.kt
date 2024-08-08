@@ -30,7 +30,7 @@ import com.android.volley.toolbox.Volley
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
-
+    var url : String = "192.168.219.59"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -65,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
         // Request.Builder를 사용하여 요청 객체생성
         // POST메서드를 사용하여 폼 데이터 서버로 전송
         val request = Request.Builder()
-            .url("http://192.168.219.48:8089/members/sign-in")
+            .url("http://${url}:8089/members/sign-in")
             .post(body)
             .build()
 
