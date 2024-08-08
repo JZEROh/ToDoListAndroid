@@ -67,21 +67,22 @@ class ToDoActivity : AppCompatActivity() {
             val title = etTodo.text.toString() // 제목 가져오기
             val content = "" // 내용은 빈 문자열로 설정 (필요에 따라 수정)
 
-            val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) // 기존 문자열 형식
-            val date = inputFormat.parse(selectedDate) // Date 객체로 변환
+            val selectedDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val serverDateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.getDefault())
 
-            // 2. 원하는 형식으로 변환
-            val outputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.getDefault())
-            val formattedDate = outputFormat.format(date)
+            val formattedDate = selectedDate?.let {
+                val parsedDate = selectedDateFormat.parse(it)
+                serverDateFormat.format(parsedDate)
+            }
 
-            val todo = Todo(title, formattedDate, content)
+            val todo = Todo(title, formattedDate.toString(), content)
 
             if (title.isNotEmpty()) { // 빈 제목 체크
                 toDoItems.add(todo)
                 adapter.notifyDataSetChanged()
                 etTodo.text.clear()
 
-                sendScheduleToServer(title, content, formattedDate) // 수정된 부분
+                sendScheduleToServer(title, content, formattedDate.toString()) // 수정된 부분
             } else {
                 Toast.makeText(this, "할 일을 입력해주세요!", Toast.LENGTH_SHORT).show()
             }
@@ -123,7 +124,7 @@ class ToDoActivity : AppCompatActivity() {
         // Request.Builder를 사용하여 요청 객체생성
         // GET 메서드를 사용하여 서버에 요청, 헤더에 토큰 추가
         val request = Request.Builder()
-            .url("http://192.168.219.48:8089/api/schedules")
+            .url("http://192.168.219.229:8089/api/schedules")
             .get()
             .build()
 
@@ -218,7 +219,7 @@ class ToDoActivity : AppCompatActivity() {
 
         // 3. Request 객체 생성 (POST 방식)
         val request = Request.Builder()
-            .url("http://192.168.219.48:8089/api/schedules") // 실제 서버 API 엔드포인트로 변경
+            .url("http://192.168.219.229:8089/api/schedules") // 실제 서버 API 엔드포인트로 변경
             .post(requestBody)
             .build()
 
