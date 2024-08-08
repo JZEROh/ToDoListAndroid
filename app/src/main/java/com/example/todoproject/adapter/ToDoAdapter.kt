@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoproject.R
+import com.example.todoproject.data.Schedule
 import com.example.todoproject.data.Todo
 
 data class ToDoAdapter(val toDoItems: List<Todo>) : RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
