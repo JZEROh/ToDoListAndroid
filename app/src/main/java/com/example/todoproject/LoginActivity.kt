@@ -96,6 +96,9 @@ class LoginActivity : AppCompatActivity() {
                             finish()
                         }
                     } else {
+                        runOnUiThread {
+                            Toast.makeText(this@LoginActivity, "로그인 실패. 아이디 또는 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show()
+                        }
                         throw IOException("Unexpected code $it")
                     }
                 }

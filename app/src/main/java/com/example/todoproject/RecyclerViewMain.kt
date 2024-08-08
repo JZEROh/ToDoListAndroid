@@ -22,7 +22,7 @@ class RecyclerViewMain : Fragment() {
 
     private lateinit var viewPager: ViewPager
     private val toDoItems = mutableListOf<ToDoItem>()
-
+    val url : String = "192.168.219.59"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -66,7 +66,7 @@ class RecyclerViewMain : Fragment() {
             .build()
 
         val request = Request.Builder()
-            .url("http://192.168.219.229:8089/api/schedules") // 실제 API 엔드포인트로 변경
+            .url("http://${url}:8089/api/schedules") // 실제 API 엔드포인트로 변경
             .get()
             .build()
 
