@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 
-class ToDoAdapter(private val context: Context,private val itemList: List<ToDoItem>) : RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
+class ToDoMonthAdapter(private val context: Context, private val itemList: List<ToDoItem>) : RecyclerView.Adapter<ToDoMonthAdapter.ToDoViewHolder>() {
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     class ToDoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

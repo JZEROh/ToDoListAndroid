@@ -28,7 +28,7 @@ class RecyclerViewFragment : Fragment() {
         val view = inflater.inflate(R.layout.activity_recycler_view, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvToDoList)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = ToDoAdapter(requireContext(), items)
+        recyclerView.adapter = ToDoMonthAdapter(requireContext(), items)
         return view
     }
 

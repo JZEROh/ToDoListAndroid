@@ -25,7 +25,7 @@ class RecyclerViewActivity : AppCompatActivity() {
         val itemList = listOf(
             ToDoItem("제목1", "설명1", dateFormat.parse("20240203") ?: Date()),
             ToDoItem("제목2", "설명2", dateFormat.parse("20240201") ?: Date()),
-            ToDoItem("제목3", "설명3", dateFormat.parse("20240206") ?: Date()),
+            ToDoItem("제목3", "설명3", dateFormat.parse("20240306") ?: Date()),
             ToDoItem("제목4", "설명4", dateFormat.parse("20240401") ?: Date())
         )
 
