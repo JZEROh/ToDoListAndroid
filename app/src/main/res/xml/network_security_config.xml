@@ -6,5 +6,6 @@
         <domain includeSubdomains="true">api.openweathermap.org</domain>
         <domain includeSubdomains="true">192.168.219.48</domain> <!-- 에뮬레이터의 localhost 주소 -->
         <domain includeSubdomains="true">192.168.*</domain>
+        <domain includeSubdomains="true">192.168.219.59</domain>
     </domain-config>
 </network-security-config>

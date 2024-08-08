@@ -27,9 +27,9 @@ lateinit var binding: ActivityFirstpageBinding
 
 
 
-        if (savedInstanceState == null) {
-            replaceFragment(Calendar_frag())
-        }
+//        if (savedInstanceState == null) {
+//            replaceFragment(Calendar_frag())
+//        }
     }
 
     private fun replaceFragment(fragment: Fragment) {

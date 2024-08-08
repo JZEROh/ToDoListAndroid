@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
         // Request.Builder를 사용하여 요청 객체생성
         // POST메서드를 사용하여 폼 데이터 서버로 전송
         val request = Request.Builder()
-            .url("http://192.168.219.48:8089/members/sign-in")
+            .url("http://192.168.219.59:8089/members/sign-in")
             .post(body)
             .build()
 
