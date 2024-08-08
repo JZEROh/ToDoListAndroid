@@ -45,6 +45,14 @@ class MainActivity : AppCompatActivity() {
 
                 }
 
+                R.id.todolist_id -> {
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.mainContent, RecyclerViewMain()
+                    ).commit()
+                    true
+
+                }
+
                 else -> false
             }
         }
