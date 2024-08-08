@@ -67,9 +67,12 @@ class ToDoActivity : AppCompatActivity() {
             val title = etTodo.text.toString() // 제목 가져오기
             val content = "" // 내용은 빈 문자열로 설정 (필요에 따라 수정)
 
-            val currentDate = Date()
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.getDefault())
-            val formattedDate = dateFormat.format(currentDate)
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) // 기존 문자열 형식
+            val date = inputFormat.parse(selectedDate) // Date 객체로 변환
+
+            // 2. 원하는 형식으로 변환
+            val outputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.getDefault())
+            val formattedDate = outputFormat.format(date)
 
             val todo = Todo(title, formattedDate, content)
 
