@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoproject.R
 import com.example.todoproject.adapter.ToDoMonthAdapter
-import com.example.todoproject.data.Schedule
 import com.example.todoproject.data.ToDoItem
 
 class RecyclerViewFragment : Fragment() {
@@ -41,7 +40,7 @@ class RecyclerViewFragment : Fragment() {
         private const val ARG_ITEMS = "items"
 
         @JvmStatic
-        fun newInstance(month: String, items: List<Schedule>) =
+        fun newInstance(month: String, items: List<ToDoItem>) =
             RecyclerViewFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_MONTH, month)

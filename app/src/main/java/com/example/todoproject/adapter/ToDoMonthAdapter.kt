@@ -20,7 +20,6 @@ class ToDoMonthAdapter(private val context: Context, private val itemList: List<
     class ToDoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
-        val tvDetail: TextView = itemView.findViewById(R.id.tvDetail)
         val tvDate: TextView = itemView.findViewById(R.id.tvDate)
         val btnAdjust: Button = itemView.findViewById(R.id.btnadjust)
         val btnDelete: Button = itemView.findViewById(R.id.btnDelete)
@@ -34,7 +33,6 @@ class ToDoMonthAdapter(private val context: Context, private val itemList: List<
     override fun onBindViewHolder(holder: ToDoViewHolder, position: Int) {
         val item = itemList[position]
         holder.tvTitle.text = item.title
-        holder.tvDetail.text = item.detail
         holder.tvDate.text = dateFormat.format(item.date)
 
         // Handle button click events if needed
@@ -82,4 +80,5 @@ class ToDoMonthAdapter(private val context: Context, private val itemList: List<
             .create()
             .show()
     }
+
 }
