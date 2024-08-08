@@ -1,4 +1,4 @@
-package com.example.todoproject
+package com.example.todoproject.adapter
 
 import android.app.AlertDialog
 import android.content.Context
@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todoproject.R
+import com.example.todoproject.data.ToDoItem
 import java.text.SimpleDateFormat
 import java.util.Locale
 

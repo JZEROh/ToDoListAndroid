@@ -65,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
         // Request.Builder를 사용하여 요청 객체생성
         // POST메서드를 사용하여 폼 데이터 서버로 전송
         val request = Request.Builder()
-            .url("http://192.168.219.59:8089/members/sign-in")
+            .url("http://192.168.219.48:8089/members/sign-in")
             .post(body)
             .build()
 
@@ -91,6 +91,9 @@ class LoginActivity : AppCompatActivity() {
 
                         runOnUiThread {
                             Toast.makeText(this@LoginActivity, "로그인 성공!!", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
                         }
                     } else {
                         throw IOException("Unexpected code $it")

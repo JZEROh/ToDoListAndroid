@@ -1,8 +1,10 @@
-package com.example.todoproject
+package com.example.todoproject.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.todoproject.fragment.RecyclerViewFragment
+import com.example.todoproject.data.ToDoItem
 
 class ViewPagerAdapter(fm: FragmentManager, private val monthlyData: Map<String, List<ToDoItem>>) : FragmentPagerAdapter(fm) {
 

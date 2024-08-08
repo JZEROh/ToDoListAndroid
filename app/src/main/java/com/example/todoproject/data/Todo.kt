@@ -1,3 +1,3 @@
 package com.example.todoproject.data
 
-data class Todo(val task:String, val date:String, val idx:Int)
+data class Todo(val title:String, val date:String, val content:String)

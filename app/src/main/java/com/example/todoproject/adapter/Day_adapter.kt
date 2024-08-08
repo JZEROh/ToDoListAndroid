@@ -1,4 +1,4 @@
-package com.example.todoproject
+package com.example.todoproject.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todoproject.R
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

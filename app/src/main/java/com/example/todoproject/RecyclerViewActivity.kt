@@ -1,11 +1,10 @@
 package com.example.todoproject
 
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import com.example.todoproject.adapter.ViewPagerAdapter
+import com.example.todoproject.data.ToDoItem
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
