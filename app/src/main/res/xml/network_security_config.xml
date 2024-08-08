@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">192.168.219.50</domain> <!-- 에뮬레이터의 localhost 주소 -->
+        <domain includeSubdomains="true">api.openweathermap.org</domain>
+        <domain includeSubdomains="true">192.168.219.48</domain> <!-- 에뮬레이터의 localhost 주소 -->
+        <domain includeSubdomains="true">192.168.219.229</domain>
+        <domain includeSubdomains="true">192.168.219.59</domain>
+        <domain includeSubdomains="true">192.168.219.64</domain> <!-- 에뮬레이터의 localhost 주소 -->
+        <domain includeSubdomains="true">http://10.0.2.2</domain>
+    </domain-config>
+</network-security-config>

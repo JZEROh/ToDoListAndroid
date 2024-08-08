@@ -2,22 +2,44 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- 권한 선언 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ToDoProject"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".RecyclerViewActivity"
             android:exported="false" />
         <activity
-            android:name=".JoinActivity"
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".fragment.WeatherFragment"
+            android:exported="true" />
+        <activity
+            android:name=".ToDoActivity"
             android:exported="false" />
+        <activity
+            android:name=".fragment.Calendar_frag"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".JoinActivity"
+            android:exported="true" />
         <activity
             android:name=".FirstpageActivity"
             android:exported="true">
