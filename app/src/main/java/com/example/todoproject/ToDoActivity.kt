@@ -33,7 +33,7 @@ class ToDoActivity : AppCompatActivity() {
     private lateinit var etTodo: EditText
     private lateinit var toDoList: RecyclerView
     private lateinit var selectedDateTextView: TextView
-    var url : String = "192.168.219.59"
+    var url : String = "192.168.45.146"
     // 데이터
     private lateinit var toDoItems: MutableList<Todo>
 

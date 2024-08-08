@@ -39,15 +39,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#000000"
             android:padding="16dp"
-            android:text="Save Task" />
+            android:text="일정 저장"
+            app:cornerRadius="10dp" />
 
         <Button
             android:id="@+id/backMain"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#000000"
             android:padding="16dp"
-            android:text="Main" />
+            android:text="메인화면"
+            app:cornerRadius="10dp" />
     </LinearLayout>
 </LinearLayout>
