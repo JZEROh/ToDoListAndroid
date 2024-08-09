@@ -91,12 +91,6 @@ class ToDoActivity : AppCompatActivity() {
             }
         }
 
-        btnDelete.setOnClickListener {
-            // 데베에서 리스트 삭제하는 함수
-            deleteOnList();
-        }
-
-
         // 뒤로가기 버튼 클릭 이벤트 처리
         backMain.setOnClickListener {
             finish() // 액티비티 종료 (메인 화면으로 돌아가기)
@@ -104,11 +98,6 @@ class ToDoActivity : AppCompatActivity() {
 
         // 서버에서 할 일 목록 가져오기
         getTodoList()
-    }
-
-    private fun deleteOnList(){
-
-
     }
 
     // 서버에서 할 일 목록 가져오는 함수

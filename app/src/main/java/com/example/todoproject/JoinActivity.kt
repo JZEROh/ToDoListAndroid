@@ -22,7 +22,7 @@ class JoinActivity : AppCompatActivity() {
     lateinit var etPw : EditText
     lateinit var etNick : EditText
     lateinit var btnJoinAct : Button
-    var url : String = "192.168.219.59"
+    var url : String = "192.168.45.146"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -88,10 +88,10 @@ class WeatherFragment : Fragment() {
                                     val date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
 
                                     textView.text = """
-                                        Location: $city
-                                        Date: $date
-                                        Current Temperature: $temp°C
-                                        Weather: $description
+                                        지역: $city
+                                        현재 시간: $date
+                                        온도: $temp°C
+                                        날씨: $description
                                     """.trimIndent()
 
                                     // 날씨 아이콘에 따라 이미지뷰를 업데이트합니다.

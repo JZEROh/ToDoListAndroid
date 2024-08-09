@@ -28,7 +28,7 @@ data class ToDoAdapter(val toDoItems: List<Todo>) : RecyclerView.Adapter<ToDoAda
     override fun onBindViewHolder(holder: ToDoViewHolder, position: Int) {
         val todoItem = toDoItems[position]
         holder.todoTextView.text = todoItem.title
-        holder.dateTextView.text = todoItem.date
+        holder.dateTextView.text = todoItem.date.toString()
         holder.contentTextView.text = todoItem.content
     }
 }
