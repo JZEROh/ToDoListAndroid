@@ -22,7 +22,7 @@ class RecyclerViewMain : Fragment() {
 
     private lateinit var viewPager: ViewPager
     private val toDoItems = mutableListOf<ToDoItem>()
-    val url : String = "192.168.45.146"
+    val url : String = "192.168.219.59"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -33,7 +33,6 @@ class ToDoActivity : AppCompatActivity() {
     private lateinit var etTodo: EditText
     private lateinit var toDoList: RecyclerView
     private lateinit var selectedDateTextView: TextView
-    private lateinit var btnDelete: Button
 
     var url : String = "192.168.219.59"
     // 데이터
@@ -49,7 +48,6 @@ class ToDoActivity : AppCompatActivity() {
         etTodo = findViewById(R.id.etTodo)
         toDoList = findViewById(R.id.toDoList) // RecyclerView ID 수정
         selectedDateTextView = findViewById(R.id.tvSelectedDate)
-        btnDelete = findViewById(R.id.btnDelete)
 
         // toDoItems 초기화
         toDoItems = mutableListOf()
