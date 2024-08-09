@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                     .parseClaimsJws(token)
                     .body
 
-                nickname = claims.get("nick", String::class.java) // 닉네임 추출
+                nickname = claims.get("nick", String::class.java) + "님 반갑습니다" // 닉네임 추출
             } catch (e: Exception) {
                 // 토큰 파싱 실패 처리 (예: 토큰 만료, 유효하지 않은 토큰 등)
                 Log.e("JWT", "토큰 파싱 에러", e)

@@ -66,6 +66,8 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.1")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
 
+
+
     // Gson 추가
     implementation ("com.google.code.gson:gson:2.10.1") // 최신 버전 사용 권장
     // JWT 관련 라이브러리 추가 (서버와 동일한 라이브러리 사용 권장)

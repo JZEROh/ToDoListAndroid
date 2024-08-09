@@ -7,7 +7,7 @@
         <domain includeSubdomains="true">192.168.219.48</domain> <!-- 에뮬레이터의 localhost 주소 -->
         <domain includeSubdomains="true">192.168.219.229</domain>
         <domain includeSubdomains="true">192.168.219.59</domain>
-        <domain includeSubdomains="true">192.168.219.64</domain> <!-- 에뮬레이터의 localhost 주소 -->
+        <domain includeSubdomains="true">192.168.45.146</domain> <!-- 에뮬레이터의 localhost 주소 -->
         <domain includeSubdomains="true">http://10.0.2.2</domain>
     </domain-config>
 </network-security-config>

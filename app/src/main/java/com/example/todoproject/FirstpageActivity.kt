@@ -15,6 +15,8 @@ lateinit var binding: ActivityFirstpageBinding
         binding = ActivityFirstpageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         binding.moveLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
