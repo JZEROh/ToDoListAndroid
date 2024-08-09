@@ -33,6 +33,8 @@ class ToDoActivity : AppCompatActivity() {
     private lateinit var etTodo: EditText
     private lateinit var toDoList: RecyclerView
     private lateinit var selectedDateTextView: TextView
+    private lateinit var btnDelete: Button
+
     var url : String = "192.168.219.59"
     // 데이터
     private lateinit var toDoItems: MutableList<Todo>
@@ -47,6 +49,7 @@ class ToDoActivity : AppCompatActivity() {
         etTodo = findViewById(R.id.etTodo)
         toDoList = findViewById(R.id.toDoList) // RecyclerView ID 수정
         selectedDateTextView = findViewById(R.id.tvSelectedDate)
+        btnDelete = findViewById(R.id.btnDelete)
 
         // toDoItems 초기화
         toDoItems = mutableListOf()
@@ -88,6 +91,12 @@ class ToDoActivity : AppCompatActivity() {
             }
         }
 
+        btnDelete.setOnClickListener {
+            // 데베에서 리스트 삭제하는 함수
+            deleteOnList();
+        }
+
+
         // 뒤로가기 버튼 클릭 이벤트 처리
         backMain.setOnClickListener {
             finish() // 액티비티 종료 (메인 화면으로 돌아가기)
@@ -95,6 +104,11 @@ class ToDoActivity : AppCompatActivity() {
 
         // 서버에서 할 일 목록 가져오기
         getTodoList()
+    }
+
+    private fun deleteOnList(){
+
+
     }
 
     // 서버에서 할 일 목록 가져오는 함수

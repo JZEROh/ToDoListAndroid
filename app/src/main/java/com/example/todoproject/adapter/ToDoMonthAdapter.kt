@@ -17,8 +17,9 @@ import java.util.Locale
 
 class ToDoMonthAdapter(private val context: Context, private val itemList: List<ToDoItem>) : RecyclerView.Adapter<ToDoMonthAdapter.ToDoViewHolder>() {
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-    class ToDoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+
+    class ToDoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
         val tvDate: TextView = itemView.findViewById(R.id.tvDate)
         val btnAdjust: Button = itemView.findViewById(R.id.btnadjust)
